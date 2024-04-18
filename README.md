@@ -21,10 +21,13 @@
 <ol>
     <li><strong>Clonar el Repositorio:</strong> Clona este repositorio en tu máquina local utilizando el siguiente comando:<br>
         <code>git clone https://github.com/1v4n21/BlazorCRUDEntityFramework</code></li>
+    <br>
     <li><strong>Instalar Dependencias:</strong> Una vez clonado el repositorio, navega hasta el directorio del proyecto y ejecuta el siguiente comando para instalar las dependencias necesarias:<br>
         <code>dotnet restore</code></li>
+    <br>
     <li><strong>Configurar la Base de Datos:</strong> Despues de crear el Context hay que ejecutar en terminal los siguientes comandos
         <br><code>Add-Migration Initial</code><br><code>Update-Database</code></li>
+    <br>
     <li><strong>Ejecutar la Aplicación:</strong> Una vez configurada la base de datos, ejecuta la aplicación con el siguiente comando:<br>
         <code>dotnet run</code></li>
 </ol>
