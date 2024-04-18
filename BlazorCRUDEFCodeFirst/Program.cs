@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+//Añadimos los servicios al constructor de nuestra aplicacion
 builder.Services.AddDbContext<MyBooksContext>();
 builder.Services.AddScoped<IBookService, BookService>();
 

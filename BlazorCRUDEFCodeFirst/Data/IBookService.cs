@@ -2,6 +2,7 @@
 
 namespace BlazorCRUDEFCodeFirst.Data
 {
+    //Interfaz para el servicio de libros
     public interface IBookService
     {
         Task<IEnumerable<Book>> GetAllBook();

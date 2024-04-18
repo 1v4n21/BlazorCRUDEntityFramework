@@ -1,32 +1,48 @@
-﻿@page "/"
+﻿<!-- Ruta de la vista actual -->
+@page "/"
+
+<!-- Injectamos las clases con un nombre apuntando a ellas -->
 @inject IBookService BookService
 
+<!-- Titulo de la vista -->
+<PageTitle>BookList</PageTitle>
+
+<!-- h1 de la vista -->
 <h1>BookList</h1>
 
+<!-- Descripción de la web -->
 <p>This page shows a list of all books.</p>
+<!-- Mensaje de error en el caso de lanzar excepcion -->
 @Message
 
+<!-- Enlace para añadir libro -->
 <div>
 	<a href="/bookDetails"><i>Add New Book</i></a>
 </div>
 
+<!-- Comprobamos que ha cargado los libros -->
 @if(books == null)
 {
 	<p><em>Loading...</em></p>
 }
 else
 {
+	<!-- Tabla con los libros y sus datos -->
 	<table class="table">
 		<thead>
 			<tr>
+				<th>Id</th>
 				<th>Title</th>
 				<th>Author</th>
 			</tr>
 		</thead>
 		<tbody>
+			<!-- Recorremos un foreach para mostrar los datos de cada libro -->
 			@foreach (var book in books)
 			{
+				<!-- Datos de cada libro -->
 				<tr>
+					<th>@book.BookId</th>
 					<th>@book.Title</th>
 					<th>@book.Author</th>
 				</tr>
@@ -36,17 +52,22 @@ else
 }
 
 @code {
+	//Array de todos los libros existentes en la BD
 	public IEnumerable<Book> books { get; set; }
-	public string Message { get; set; }
 
+	public string Message { get; set; }
+	
+	//Metodo que se ejecuta al iniciar la web
 	protected override async Task OnInitializedAsync()
 	{
 		try
 		{
+			//Metodo que carga todos los datos de la BD
 			books = await BookService.GetAllBook();
 		}
 		catch (Exception e)
 		{
+			//Mensaje de error excepcion
 			Message = e.Message;
 		}
 	}

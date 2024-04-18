@@ -48,11 +48,20 @@
     //Metodo para guardar el libro y reenviar al inicio
     protected async Task SaveBook()
     {
-        await BookService.SaveBook(book);
-        NavigationManager.NavigateTo("/");
+        //Comprobamos que se han introducido datos en el formulario
+        if(book.Title != "" && book.Author != "")
+        {
+            //Metodo para guardar libro en la BD
+            await BookService.SaveBook(book);
+            NavigationManager.NavigateTo("/");
+        }
+        else
+        {
+            Cancel();
+        }
     }
 
-    //Metodo para reenviar al inicio
+    //Metodo para dirigir al inicio
     protected void Cancel()
     {
         NavigationManager.NavigateTo("/");

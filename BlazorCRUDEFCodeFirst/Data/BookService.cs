@@ -3,15 +3,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlazorCRUDEFCodeFirst.Data
 {
+    //Le implementamos la interfaz
     public class BookService : IBookService
     {
+        //Context es la base de datos
         private readonly MyBooksContext _context;
 
+        //Introducimos en context la base de datos
         public BookService(MyBooksContext context)
         {
             _context = context;
         }   
 
+        //Borrar libro
         public async Task<bool> DeleteBook(int id)
         {
             var book = await _context.Books.FindAsync(id);
@@ -21,16 +25,19 @@ namespace BlazorCRUDEFCodeFirst.Data
             return await _context.SaveChangesAsync() > 0;
         }
 
+        //Obtener todos los libros
         public async Task<IEnumerable<Book>> GetAllBook()
         {
             return await _context.Books.ToListAsync();
         }
 
+        //Obtener un libro
         public async Task<Book> GetBookDetails(int id)
         {
             return await _context.Books.FindAsync(id);
         }
 
+        //Insertar un libro
         public async Task<bool> InsertBook(Book book)
         {
             _context.Books.Add(book);
@@ -38,6 +45,7 @@ namespace BlazorCRUDEFCodeFirst.Data
             return await _context.SaveChangesAsync() > 0;
         }
 
+        //Metodo para ver si el libro es nuevo y se debe insertar o si ya existe o se debe editar
         public async Task<bool> SaveBook(Book book)
         {
             if(book.BookId > 0)
@@ -50,6 +58,7 @@ namespace BlazorCRUDEFCodeFirst.Data
             }
         }
 
+        //Editar libro
         public async Task<bool> UpdateBook(Book book)
         {
             _context.Entry(book).State = EntityState.Modified;
