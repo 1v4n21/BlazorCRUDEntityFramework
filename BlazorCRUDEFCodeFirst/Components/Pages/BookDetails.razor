@@ -1,0 +1,37 @@
+﻿@page "/bookDetails"
+@inject IBookService BookService
+
+<h1>BookDetails</h1>
+
+<EditForm Model="book" OnSubmit="SaveBook" FormName="saveBooks">
+    <table class="table">
+        <tr>
+            <td>Title: </td>
+            <td><InputText class="form-control" id="title" @bind-Value="book.Title"></InputText></td>
+        </tr>
+        <tr>
+            <td>Author: </td>
+            <td><InputText class="form-control" id="author" @bind-Value="book.Author"></InputText></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <button type="submit">Save</button>
+                <input type="button" value="Cancel" />
+            </td>
+        </tr>
+    </table>
+</EditForm>
+
+@code {
+    [SupplyParameterFromForm]
+    public Book book { get; set; }
+
+    protected override void OnInitialized() => book ??= new();
+
+    protected async Task SaveBook()
+    {
+        await BookService.SaveBook(book);
+    }
+}
+
