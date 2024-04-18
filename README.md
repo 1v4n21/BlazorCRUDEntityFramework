@@ -24,9 +24,7 @@
     <li><strong>Instalar Dependencias:</strong> Una vez clonado el repositorio, navega hasta el directorio del proyecto y ejecuta el siguiente comando para instalar las dependencias necesarias:<br>
         <code>dotnet restore</code></li>
     <li><strong>Configurar la Base de Datos:</strong> Despues de crear el Context hay que ejecutar en terminal los siguientes comandos
-        <code>Add-Migration Initial</code><code>Update-Database</code></li>
-    <li><strong>Aplicar Migraciones:</strong> Para crear las tablas en la base de datos, ejecuta las migraciones con el siguiente comando:<br>
-        <code>dotnet ef database update</code></li>
+        <code>Add-Migration Initial</code><br><code>Update-Database</code></li>
     <li><strong>Ejecutar la Aplicación:</strong> Una vez configurada la base de datos, ejecuta la aplicación con el siguiente comando:<br>
         <code>dotnet run</code></li>
 </ol>
