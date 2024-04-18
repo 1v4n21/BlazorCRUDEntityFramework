@@ -31,6 +31,3 @@
 
 <h2>Contribuciones</h2>
 <p>Las contribuciones son bienvenidas. Si deseas mejorar esta aplicación, no dudes en abrir un issue o enviar un pull request.</p>
-
-<h2>Licencia</h2>
-<p>Este proyecto está bajo la licencia <a href="LICENSE">MIT</a>.</p>
