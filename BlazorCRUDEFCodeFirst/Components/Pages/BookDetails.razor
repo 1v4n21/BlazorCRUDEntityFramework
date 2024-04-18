@@ -1,37 +1,61 @@
-﻿@page "/bookDetails"
-@inject IBookService BookService
+﻿<!-- Ruta de la vista actual -->
+@page "/bookDetails"
 
+<!-- Injectamos las clases con un nombre apuntando a ellas -->
+@inject IBookService BookService
+@inject NavigationManager NavigationManager
+
+<!-- Titulo de la vista -->
+<PageTitle>BookDetails</PageTitle>
+
+<!-- h1 de la vista -->
 <h1>BookDetails</h1>
 
+<!-- Formulario de blazor pasandole como modelo (book) y con un evento OnSubmit -->
 <EditForm Model="book" OnSubmit="SaveBook" FormName="saveBooks">
     <table class="table">
         <tr>
             <td>Title: </td>
+            <!-- Titulo del libro bindeado al modelo (book) -->
             <td><InputText class="form-control" id="title" @bind-Value="book.Title"></InputText></td>
         </tr>
         <tr>
             <td>Author: </td>
+            <!-- Autor del libro bindeado al modelo (book) -->
             <td><InputText class="form-control" id="author" @bind-Value="book.Author"></InputText></td>
         </tr>
 
+        <!-- Area de botones -->
         <tr>
             <td colspan="2" style="text-align:center">
+                <!-- Boton de guardado -->
                 <button type="submit">Save</button>
-                <input type="button" value="Cancel" />
+                <!-- Boton para volver atras con el evento onclick -->
+                <button @onclick="Cancel">Cancel</button>
             </td>
         </tr>
     </table>
 </EditForm>
 
 @code {
+    //Objeto book usado como modelo del formulario
     [SupplyParameterFromForm]
     public Book book { get; set; }
 
+    //Inicializamos el book al iniciar la aplicacion
     protected override void OnInitialized() => book ??= new();
 
+    //Metodo para guardar el libro y reenviar al inicio
     protected async Task SaveBook()
     {
         await BookService.SaveBook(book);
+        NavigationManager.NavigateTo("/");
+    }
+
+    //Metodo para reenviar al inicio
+    protected void Cancel()
+    {
+        NavigationManager.NavigateTo("/");
     }
 }
 
