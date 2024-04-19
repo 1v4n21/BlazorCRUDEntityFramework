@@ -1,6 +1,6 @@
 ﻿namespace BlazorCRUDEFCodeFirst.Models
 {
-    //Clase libro con tres atributos con getter y setter
+    //Clase libro con tres atributos con getter y setter int string string
     public class Book
     {
         public int BookId { get; set; }
