@@ -1,6 +1,9 @@
 ﻿<!-- Ruta de la vista actual -->
 @page "/bookDetails"
 
+<!-- Ruta para editar un libro pasandole como parametro su id -->
+@page "/bookDetails/{id:int}"
+
 <!-- Injectamos las clases con un nombre apuntando a ellas -->
 @inject IBookService BookService
 @inject NavigationManager NavigationManager
@@ -38,9 +41,25 @@
 </EditForm>
 
 @code {
+    //Variable que le llega en la ruta como parametro {id: int}
+    [Parameter]
+    public int id { get; set; }
+
     //Objeto book usado como modelo del formulario
     [SupplyParameterFromForm]
     public Book book { get; set; }
+
+    bool bookDetailsLoaded = false;
+
+    //Cargar el libro por id
+    protected override async Task OnInitializedAsync()
+    {
+        if (!bookDetailsLoaded && id != 0)
+        {
+            book = await BookService.GetBookDetails(id);
+            bookDetailsLoaded = true;
+        }
+    }
 
     //Inicializamos el book al iniciar la aplicacion
     protected override void OnInitialized() => book ??= new();
