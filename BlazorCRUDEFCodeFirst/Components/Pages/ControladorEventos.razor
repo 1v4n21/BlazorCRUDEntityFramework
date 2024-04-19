@@ -1,25 +1,23 @@
 ﻿@page "/eventos"
 
-<PageTitle>Event Handler 3</PageTitle>
+<!-- Utilizar DOM en Blazor -->
+@rendermode InteractiveServer
 
-<h1>Event Handler Example 3</h1>
+<PageTitle>Event Handler 1</PageTitle>
 
-@for (var i = 0; i < 4; i++)
-{
-    <p>
-        <button @onclick="ReportPointerLocation">
-            Where's my mouse pointer for this button?
-        </button>
-    </p>
-}
+<h1>Event Handler Example 1</h1>
 
-<p>@mousePointerMessage</p>
+<h2>@headingValue</h2>
+
+<button @onclick="DoSomething">Click me</button>
 
 @code {
-    private string? mousePointerMessage;
+    private string headingValue = "Initial heading";
 
-    private void ReportPointerLocation(MouseEventArgs e)
+    private void DoSomething()
     {
-        mousePointerMessage = $"Mouse coordinates: {e.ScreenX}:{e.ScreenY}";
+        // Realiza alguna acción cuando se hace clic en el botón
+        headingValue = $"New heading ({DateTime.Now})";
     }
 }
+
