@@ -7,6 +7,12 @@
 <!-- Injectamos las clases con un nombre apuntando a ellas -->
 @inject IBookService BookService
 
+<!-- Para redirigir a rutas -->
+@inject NavigationManager NavigationManager
+
+<!-- JavaScript -->
+@inject IJSRuntime JS
+
 <!-- Titulo de la vista -->
 <PageTitle>BookList</PageTitle>
 
@@ -44,7 +50,7 @@ else
 			@foreach (var book in books)
 			{
 				<!-- Datos de cada libro -->
-				<tr>
+				<tr class="book-@book.BookId">
 					<td>@book.BookId</td>
 					<td>@book.Title</td>
 					<td>@book.Author</td>
@@ -52,6 +58,7 @@ else
 					<!-- Enlace para ver un libro -->
 					<td><a href="/bookDetails/@book.BookId"><i>Edit</i></a></td>
 
+					<!-- Boton con evento para borrar libro -->
 					<td><button @onclick="() => DeleteBook(book.BookId)">Delete</button></td>
 				</tr>
 			}
