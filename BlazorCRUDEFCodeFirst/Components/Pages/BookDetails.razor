@@ -20,6 +20,10 @@
 <EditForm Model="book" OnSubmit="SaveBook" FormName="saveBooks">
     <table class="table">
         <tr>
+            <td>Id: </td>
+            <td><InputNumber class="form-control" id="BookId" @bind-Value="book.BookId" readonly></InputNumber></td>
+        </tr>
+        <tr>
             <td>Title: </td>
             <!-- Titulo del libro bindeado al modelo (book) -->
             <td><InputText class="form-control" id="title" @bind-Value="book.Title"></InputText></td>
@@ -51,15 +55,17 @@
     [SupplyParameterFromForm]
     public Book book { get; set; }
 
-    bool bookDetailsLoaded = false;
-
     //Cargar el libro por id
     protected override async Task OnInitializedAsync()
     {
-        if (!bookDetailsLoaded && id != 0)
+        //Comprobamos que se le ha pasado un id como parametro
+        if (id != 0)
         {
-            book = await BookService.GetBookDetails(id);
-            bookDetailsLoaded = true;
+            //Si el libro ya ha sido cargado no lo volvemos a cargar
+            if(book.BookId == 0)
+            {
+                book = await BookService.GetBookDetails(id);
+            }
         }
     }
 

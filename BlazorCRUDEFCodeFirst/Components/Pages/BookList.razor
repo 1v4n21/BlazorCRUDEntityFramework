@@ -77,6 +77,21 @@ else
 	//Metodo que se ejecuta al iniciar la web
 	protected override async Task OnInitializedAsync()
 	{
+		await RefreshBook();
+	}
+
+	//Borrar libro por su id
+	protected async Task DeleteBook(int id)
+	{
+		await BookService.DeleteBook(id);
+
+		//Volvemos a cargar todos los datos tras eliminar el libro
+		await RefreshBook();
+	}
+
+	//Metodo para cargar los libros
+	protected async Task RefreshBook()
+	{
 		try
 		{
 			//Metodo que carga todos los datos de la BD
@@ -87,11 +102,5 @@ else
 			//Mensaje de error excepcion
 			Message = e.Message;
 		}
-	}
-
-	//Borrar libro por su id
-	protected async Task DeleteBook(int id)
-	{
-		await BookService.DeleteBook(id);
 	}
 }
