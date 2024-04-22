@@ -1,36 +1,36 @@
 <h1>Blazor CRUD Project with Entity Framework</h1>
-<p>Este proyecto es una aplicación web desarrollada con Blazor, una tecnología de Microsoft que permite crear aplicaciones web interactivas utilizando C# en lugar de JavaScript. En este proyecto, estamos aprendiendo a utilizar Blazor para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en una base de datos utilizando Entity Framework.</p>
+<p>This project is a web application developed with Blazor, a Microsoft technology that allows creating interactive web applications using C# instead of JavaScript. In this project, we are learning how to use Blazor to perform CRUD (Create, Read, Update, Delete) operations on a database using Entity Framework.</p>
 
-<h2>Funcionalidades</h2>
+<h2>Functionalities</h2>
 <ul>
-    <li><strong>Crear:</strong> Permite al usuario agregar nuevos elementos a la base de datos.</li>
-    <li><strong>Leer:</strong> Muestra los elementos almacenados en la base de datos.</li>
-    <li><strong>Actualizar:</strong> Permite al usuario editar los elementos existentes.</li>
-    <li><strong>Eliminar:</strong> Permite al usuario eliminar elementos de la base de datos.</li>
+    <li><strong>Create:</strong> Allows the user to add new items to the database.</li>
+    <li><strong>Read:</strong> Displays the items stored in the database.</li>
+    <li><strong>Update:</strong> Allows the user to edit existing items.</li>
+    <li><strong>Delete:</strong> Allows the user to delete items from the database.</li>
 </ul>
 
-<h2>Tecnologías Utilizadas</h2>
+<h2>Technologies Used</h2>
 <ul>
-    <li><strong>Blazor:</strong> Un framework de Microsoft para construir aplicaciones web interactivas utilizando C# y .NET.</li>
-    <li><strong>Entity Framework Core:</strong> Un ORM (Mapeador Objeto-Relacional) que facilita el acceso y la manipulación de datos en la base de datos utilizando modelos de datos de .NET.</li>
-    <li><strong>C#:</strong> Lenguaje de programación utilizado para el desarrollo de la lógica de la aplicación.</li>
-    <li><strong>ASP.NET Core:</strong> Framework utilizado para crear aplicaciones web y APIs en .NET.</li>
+    <li><strong>Blazor:</strong> A Microsoft framework for building interactive web applications using C# and .NET.</li>
+    <li><strong>Entity Framework Core:</strong> An ORM (Object-Relational Mapper) that facilitates access and manipulation of data in the database using .NET data models.</li>
+    <li><strong>C#:</strong> Programming language used for developing the application logic.</li>
+    <li><strong>ASP.NET Core:</strong> Framework used for creating web applications and APIs in .NET.</li>
 </ul>
 
-<h2>Configuración del Proyecto</h2>
+<h2>Project Setup</h2>
 <ol>
-    <li><strong>Clonar el Repositorio:</strong> Clona este repositorio en tu máquina local utilizando el siguiente comando:<br>
+    <li><strong>Clone the Repository:</strong> Clone this repository to your local machine using the following command:<br>
         <code>git clone https://github.com/1v4n21/BlazorCRUDEntityFramework</code></li>
     <br>
-    <li><strong>Instalar Dependencias:</strong> Una vez clonado el repositorio, navega hasta el directorio del proyecto y ejecuta el siguiente comando para instalar las dependencias necesarias:<br>
+    <li><strong>Install Dependencies:</strong> Once the repository is cloned, navigate to the project directory and execute the following command to install the necessary dependencies:<br>
         <code>dotnet restore</code></li>
     <br>
-    <li><strong>Configurar la Base de Datos:</strong> Despues de crear el Context hay que ejecutar en terminal los siguientes comandos
-        <br><code>Add-Migration Initial</code><br><code>Update-Database</code></li>
+    <li><strong>Configure the Database:</strong> After creating the Context, you need to run the following commands in the terminal:<br><code>Add-Migration Initial</code><br><code>Update-Database</code></li>
     <br>
-    <li><strong>Ejecutar la Aplicación:</strong> Una vez configurada la base de datos, ejecuta la aplicación con el siguiente comando:<br>
+    <li><strong>Run the Application:</strong> Once the database is configured, run the application with the following command:<br>
         <code>dotnet run</code></li>
 </ol>
 
-<h2>Contribuciones</h2>
-<p>Las contribuciones son bienvenidas. Si deseas mejorar esta aplicación, no dudes en abrir un issue o enviar un pull request.</p>
+<h2>Contributions</h2>
+<p>Contributions are welcome. If you want to improve this application, feel free to open an issue or send a pull request.</p>
+
