@@ -8,6 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddDevExpressBlazor(options => {
+    options.BootstrapVersion = DevExpress.Blazor.BootstrapVersion.v5;
+    options.SizeMode = DevExpress.Blazor.SizeMode.Medium;
+});
+
 //Añadimos los servicios al constructor de nuestra aplicacion
 builder.Services.AddDbContext<MyBooksContext>();
 builder.Services.AddScoped<IBookService, BookService>();

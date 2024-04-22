@@ -1,5 +1,5 @@
 ﻿<!-- Ruta de la vista actual -->
-@page "/"
+@page "/h"
 
 <!-- Utilizar DOM en Blazor -->
 @rendermode InteractiveServer
@@ -11,10 +11,10 @@
 @inject NavigationManager NavigationManager
 
 <!-- Titulo de la vista -->
-<PageTitle>BookList</PageTitle>
+<PageTitle>BookListGrid</PageTitle>
 
 <!-- h1 de la vista -->
-<h1>BookList</h1>
+<h1>BookListGrid</h1>
 
 <!-- Descripción de la web -->
 <p>This page shows a list of all books.</p>
@@ -27,40 +27,20 @@
 </div>
 
 <!-- Comprobamos que ha cargado los libros -->
-@if(books == null)
+@if (books == null)
 {
 	<p><em>Loading...</em></p>
 }
 else
 {
 	<!-- Tabla con los libros y sus datos -->
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Title</th>
-				<th>Author</th>
-			</tr>
-		</thead>
-		<tbody>
-			<!-- Recorremos un foreach para mostrar los datos de cada libro -->
-			@foreach (var book in books)
-			{
-				<!-- Datos de cada libro -->
-				<tr class="book-@book.BookId">
-					<td>@book.BookId</td>
-					<td>@book.Title</td>
-					<td>@book.Author</td>
-
-					<!-- Enlace para ver un libro -->
-					<td><a href="/bookDetails/@book.BookId"><i>Edit</i></a></td>
-
-					<!-- Boton con evento para borrar libro -->
-					<td><button @onclick="() => DeleteBook(book.BookId)">Delete</button></td>
-				</tr>
-			}
-		</tbody>
-	</table>
+	<DxGrid Data="@books">
+		<Columns>
+			<DxGridDataColumn FieldName="BookId"/>
+			<DxGridDataColumn FieldName="Title" />
+			<DxGridDataColumn FieldName="Author" Width="120px" />
+		</Columns>  
+	</DxGrid>
 }
 
 @code {
